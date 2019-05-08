@@ -10,7 +10,6 @@
             //new_art = new_art.serialize();
 
 
-            $('#result').html('왜안돼징 ㅠ');
             var queryString = $('#textForm').serialize();
 
             console.log(result);
@@ -32,7 +31,7 @@
                 }
                 ,error:function(request,status,error){
                     alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
-            });
+            })
         });
 
 
