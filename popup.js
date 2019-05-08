@@ -1,10 +1,43 @@
-$(function(){
+/*$(function() {
 
-    chrome.storage.sync.get(['total'],function(selectedText){
+    chrome.storage.sync.get(['total'], function (selectedText) {
         $('#total').text(selectedText.total);
     });
+*/
+        $('#submit').click(function () {
+            //var art = {'article' : $('#article').val()};
+            //var new_art = JSON.stringify(art, ['article']);
+            //new_art = new_art.serialize();
 
-    $('#spendAmount').click(function(){
+
+            $('#result').html('왜안돼징 ㅠ');
+            var queryString = $('#textForm').serialize();
+
+            console.log(result);
+            $.ajax({
+                url:'13.209.8.253/summary_ajax',
+                //data : new_art,
+                data: queryString,
+                dataType:'json',
+                type:'POST',
+                cache : false,
+                processData: false,
+                success: function (data) {
+
+                    var new_data = data['article'];
+                    $('#result').html(new_data);
+
+                    //$('#result').text(result['article']);
+                    console.log(result);
+                }
+                ,error:function(request,status,error){
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
+            });
+        });
+
+
+
+        /*
         chrome.storage.sync.get(['total'],function(selectedText){
             var newTotal = "";
             var amount = $('#amount').val();
@@ -17,4 +50,6 @@ $(function(){
             $('#amount').val('');
         });
     });
+    })
 });
+*/
