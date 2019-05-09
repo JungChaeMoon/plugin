@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
+<!--
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+-->
     <head>
-        <title>Budget Manager</title>
-        <script src="jquery-3.1.0.min.js"></script>
-        <script crossorigin="anonymous"></script>
+        <title>Text summary</title>
+       <!-- <script integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> -->
         <script src="popup.js"></script>
+        <script src="jquery-3.1.0.min.js"></script>
     </head>
+
     <body>
         <h1>Select Text</h1>
         <h2>Text: <span id="total">0</span></h2>
@@ -13,8 +21,43 @@
         <form id="textForm" name="textForm">
             <div id="result"></div>
             <input id="article" name="article"type="text">
-            <input type="button" id="submmit" name="submit" value="summary"/>
+            <input type="button" id="submit" name="submit" value="summary!!"/>
         </form>
+        <!--
+        <script>
+            $('#submit').click(function () {
+                //var art = {'article' : $('#article').val()};
+                //var new_art = JSON.stringify(art, ['article']);
+                //new_art = new_art.serialize();
+
+                var queryString = $('#textForm').serialize();
+
+                alert(queryString);
+                console.log(result);
+            $.ajax({
+                url:'http://13.209.8.253/summary_ajax',
+                //data : new_art,
+                data: queryString,
+                dataType:'json',
+                type:'POST',
+                cache : false,
+                processData: false,
+                success: function (data) {
+
+                    var new_data = data['article'];
+                    $('#result').html(new_data);
+
+                    //$('#result').text(result['article']);
+                    console.log(result);
+                    }
+                ,error:function(request,status,error){
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
+                })
+            });
+    </script>
+
+-->
     </body>
+
 </html>
 
