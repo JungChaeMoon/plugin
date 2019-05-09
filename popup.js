@@ -1,16 +1,9 @@
-/*$(function() {
-
-    chrome.storage.sync.get(['total'], function (selectedText) {
-        $('#total').text(selectedText.total);
-    });
-*/
-
-
-$(document).bind("ready", function(){
+$(function(){
     $('#submit').click(function () {
         //var art = {'article' : $('#article').val()};
         //var new_art = JSON.stringify(art, ['article']);
         //new_art = new_art.serialize();
+        alert('hi');
         var queryString = $('#textForm').serialize();
 
         console.log(queryString);
@@ -35,20 +28,20 @@ $(document).bind("ready", function(){
                     alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
             })
         });
-});
-        /*
-        chrome.storage.sync.get(['total'],function(selectedText){
-            var newTotal = "";
-            var amount = $('#amount').val();
-            if (amount){
-                newTotal += amount;
-            }
-            chrome.storage.sync.set({'total': newTotal}, function(){               
+            /*
+            chrome.storage.sync.get(['total'],function(selectedText){
+                var newTotal = "";
+                var amount = $('#amount').val();
+                if (amount){
+                    newTotal += amount;
+                }
+                chrome.storage.sync.set({'total': newTotal}, function(){
+                });
+                $('#total').text(newTotal);
+                $('#amount').val('');
             });
-            $('#total').text(newTotal);
-            $('#amount').val('');
         });
+        })
     });
-    })
+    */
 });
-*/
