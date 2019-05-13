@@ -1,3 +1,4 @@
+
 $(function(){
     $('#submit').click(function () {
         //var art = {'article' : $('#article').val()};
@@ -16,6 +17,8 @@ $(function(){
                 var new_data = data['article'];
                 alert(new_data);
                 $('#result').html(new_data);
+                $('#evaluate').load('evaluate.html');
+
 
                 //$('#result').text(result['article']);
                 }
