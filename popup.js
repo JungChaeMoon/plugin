@@ -16,15 +16,34 @@ $(function(){
             success: function (data) {
                 var new_data = data['article'];
                 alert(new_data);
-                $('#result').html(new_data);
-                $('#evaluate').load('evaluate.html');
+                $('#summary').html(new_data);
 
+                //평가 html을 추가하고, click 이벤트를 넣어서 평가를 서버에 보내는 함수이다.
+                $('#evaluate').load('evaluate.html',function(){
+                    $('#eval').click(function () {
+                        var evalValue = $('#evalForm').serialize();
+                        alert(evalValue);
+                        $.ajax({
+                            url: 'http://13.209.8.253/summary_ajax/',
+                            data: evalValue,
+                            dataType: 'json',
+                            type:'POST',
+                            success: function (data) {
+                                alert('success')
+                            }
+                            ,error: function (request) {
+                                alert('error')
+                            }
+                        })
+                    });
+                });
 
                 //$('#result').text(result['article']);
                 }
                 ,error:function(request,status,error){
                     alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
             })
+
         });
             /*
             chrome.storage.sync.get(['total'],function(selectedText){
