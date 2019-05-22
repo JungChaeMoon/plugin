@@ -5,9 +5,8 @@
 
 </head>
 <body>
-    <form method="post" name="eavlForm">
+    <form method="post" name="evalForm" id="evalForm">
         <h2>더 나은 프로그램을 위해 평가해주세요!</h2>
-
             <input type="radio" name="evaluate" id="eval1" value="1">
             <label for="eval1"><strong><font size="3">★</font></strong></label>
 
@@ -27,27 +26,6 @@
             <div id="thank"></div>
     </form>
 
-
-    <script>
-        $('#eval').click(function () {
-            alert('zz');
-            var evalValue = $('#evalForm').serialize();
-            $.ajax({
-                url:'http://localhost:8000/summary_ajax',
-                data: evalValue,
-                dataType: 'json',
-                type:'POST',
-                success: function (data) {
-                    alert('감사함니당.')
-                }
-                ,error: function (request) {
-                    alert('미친실패')
-                }
-            })
-        });
-
-
-    </script>
 </body>
 
 </html>
